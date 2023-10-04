@@ -105,17 +105,9 @@ Vervolgens kun je een repository aanmaken en dan krijg je de volgende opties: </
 
 <section style="display: flex; gap:1rem;">
 <img src="./public/images/gitness-repository-dock.png" width="200" />
-<div>
 Deze opties zijn niet veel anders dan we van Github en Gitlab gewend zijn. </br>
-Welke er uit springen zijn: </br>
-<ul>
-  <li>Webhooks</li>
-  <li>Pipelines</li>
-</ul>
 Binnen de pipelines is het mogelijk om een pipeline te maken met een een YAML structuur. </br>
-Binnen de webhooks is het mogelijk om een webhook te maken met een eenvoudig stappenplan. </br>
 Wat hier wel opvalt is de afwezigheid van tickets/issues of discussies. Op deze manier ben je dus genoodzaakt om een andere tool te gebruiken voor het beheren van tickets/issues en discussies. </br>
-</div>
 </section>
 </br>
 
@@ -153,6 +145,7 @@ Pipelines binnen Gitness draaien via docker images en zijn daarmee eenvoudig te 
 In de YAML van de pipeline is het mogelijk om de volgende aspecten te gebruiken: </br>
 
 - Matrix, om meerdere versies te runnen van je pipeline. </br>
+- Secrets, om gevoelige informatie op te slaan. </br>
 - Parrellel, om meerdere stappen tegelijk te runnen. </br>
 - Stages, om stappen te groeperen. </br>
 - Steps, om stappen te definiëren. </br>
@@ -161,6 +154,38 @@ In de YAML van de pipeline is het mogelijk om de volgende aspecten te gebruiken:
   - Run, deze stap runt een commando in een shell. Dit is de meest gebruikte stap binnen je pipeline. </br>
 - Triggers, bovenstaand werd al even kort stilgestaan bij triggers, maar hieronder een voorbeeld: </br>
   - Daarmee kan je bijvoorbeeld in een `step` een conditie maken als: `when: build.action == "pullreq_created"`
+
+Omdat de pipelines draaien via docker images, is het mogelijk om een eigen image te maken en te gebruiken. </br>
+Gitness bied dan ook via de documentatie site voorbeelden aan van veelgebruikte images/talen, zie de [samples](https://docs.gitness.com/category/samples). </br>
+
+Op deze manier is het mogelijk om een pipeline te maken die bijvoorbeeld een Postgres database in de achtergrond draait en een NodeJS applicatie test die gebruik maakt van de Postgres database. </br>
+
+Zie hieronder een voorbeeld vanuit de documentatie: </br>
+
+```yaml
+kind: pipeline
+spec:
+  stages:
+    - type: ci
+      spec:
+        steps:
+          - name: database
+            type: background
+            spec:
+              container: postgres:alpine
+              env:
+                POSTGRES_PASSWORD: password
+          - name: test
+            type: run
+            spec:
+              container: node:latest
+              script: |-
+                npm run build
+                npm run test
+```
+
+Al hoewel bovenstaande YAML opgebouwd is als voorbeeld, is het een best-practice om eerst te wachten tot de database klaar is met opstarten. </br>
+Daar heeft Gitness geen oplossing voor, daarom zal je zelf, voor bijvoorbeeld postgres, een waiter moeten gebruiken die polled op de database. </br>
 
 ## Bronnen
 
