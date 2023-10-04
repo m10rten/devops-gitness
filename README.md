@@ -74,7 +74,7 @@ Gitness is eenvoudig op te starten met behulp van Docker. </br>
 Zie hieronder het commando om Gitness te starten: </br>
 ![docker run command](./public/images/gitness-installation.png)
 
-Dit heb ik vertaald naar een docker-compose.yml bestand, zie hieronder: </br>
+Dit is vertaald naar een docker-compose.yml bestand, zie hieronder: </br>
 
 ```yaml
 name: gitness
@@ -130,20 +130,37 @@ Pipelines kunnen eenvoudig aangemaakt worden via de webinterface, zie hieronder:
 </div>
 <div style="flex-grow:1;">
 Er wordt dan een YAML structuur aangemaakt, zie hieronder: </br>
-<img src="./public/images/gitness-pipeline-generated.png" width="350" />
+<img src="./public/images/gitness-pipeline-generated.png" width="300" />
 </div>
 <div style="flex-grow:1;">
 Waarna je eenvoudig de pipeline kan starten via de webinterface zoals onderstaand: </br>
-<img src="./public/images/gitness-pipeline-run.png" width="250" />
+<img src="./public/images/gitness-pipeline-run.png" width="300" />
 </div>
 <div style="flex-grow:1;">
 De resultaten die je dan te zien krijgt zijn vrijwel identiek aan de resultaten die je krijgt bij Gitlab en Github. </br>
 <img src="./public/images/gitness-pipeline-results.png" width="350" />
 </div>
 <span style="font-size:2rem;">T</span>riggers kan je gebruiken om conditioneel je pipeline automatische te laten runnen. Denk hierbij aan het maken van een nieuwe Tag, of het pushen naar de repository. Dit past goed binnen de DevOps structuur omdat je dan niet handmatig de pipeline hoeft te starten. </br>
-<img src="./public/images/gitness-pipeline-triggers.png" width="350" />
+<img src="./public/images/gitness-pipeline-triggers.png" width="450" />
 </div>
 </section>
+
+#### Deep dive
+
+Omdat er in de [Documentatie](https://docs.gitness.com/) van Gitness veel te vinden is over de pipelines, is dit een samenvatting van de belangrijkste punten. </br>
+Pipelines binnen Gitness draaien via docker images en zijn daarmee eenvoudig te maken en te gebruiken. </br>
+
+In de YAML van de pipeline is het mogelijk om de volgende aspecten te gebruiken: </br>
+
+- Matrix, om meerdere versies te runnen van je pipeline. </br>
+- Parrellel, om meerdere stappen tegelijk te runnen. </br>
+- Stages, om stappen te groeperen. </br>
+- Steps, om stappen te definiëren. </br>
+  - Background, deze stap runt in de achtergrond, exit code wordt genegeerd. </br>
+  - Plugins, deze stap runt een plugin die vooraf gedefinieerd is. </br>
+  - Run, deze stap runt een commando in een shell. Dit is de meest gebruikte stap binnen je pipeline. </br>
+- Triggers, bovenstaand werd al even kort stilgestaan bij triggers, maar hieronder een voorbeeld: </br>
+  - Daarmee kan je bijvoorbeeld in een `step` een conditie maken als: `when: build.action == "pullreq_created"`
 
 ## Bronnen
 
