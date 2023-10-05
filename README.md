@@ -1,12 +1,14 @@
 # Gitness als alt. Versiebeheersysteem?
 
+_Maarten van der Lei, 2023_ </br>
+
 ## Inleiding
 
 <section style="display: flex; gap:1rem;">
 <p> 
 <span style="font-size:3rem;">I</span>n de wereld van DevOps staat snelheid, stabiliteit en efficientie van de softwareontwikkeling centraal. Daarom is het gebruik van een versiebeheersysteem zoals Git een must. </br>
-<b>Gitness</b> is een tool die het gebruik van Git eenvoudiger maakt. In dit onderzoek wordt er gekeken naar wat Gitness is, hoe het werkt, wat de voor- en nadelen zijn en hoe het zich verhoudt ten opzichte van andere versiebeheersystemen.</br>
-<i>Waarom een alternatief op basis van Git?</i> Omdat Git de grondlegging is van de DevOps structuur en DevOps staat voor verandering en aanpassing, is het belangrijk om te kijken naar alternatieven die het gebruik van Git eenvoudiger maken.</br>
+<b>Gitness</b>_(Gitness, 2023)_ is een tool die het gebruik van Git eenvoudiger maakt. In dit onderzoek wordt er gekeken naar wat Gitness is, hoe het werkt, wat de voor- en nadelen zijn en hoe het zich verhoudt ten opzichte van andere versiebeheersystemen. </br>
+<i>Waarom een alternatief op basis van Git?</i> Omdat Git de grondlegging is van de DevOps structuur en DevOps staat voor verandering en aanpassing, is het belangrijk om te kijken naar alternatieven die het gebruik van Git eenvoudiger maken. </br>
 </p>
 
 <img align="right" src="./public/images/gitness-logo.svg" alt="Gitness logo" width="400" style="color:white; background:#111; border-radius:2rem; padding:1rem 2rem;" />
@@ -157,7 +159,7 @@ In de YAML van de pipeline is het mogelijk om de volgende aspecten te gebruiken:
   - Daarmee kan je bijvoorbeeld in een `step` een conditie maken als: `when: build.action == "pullreq_created"`
 
 Omdat de pipelines draaien via docker images, is het mogelijk om een eigen image te maken en te gebruiken. </br>
-Gitness bied dan ook via de documentatie site voorbeelden aan van veelgebruikte images/talen, zie de [samples](https://docs.gitness.com/category/samples). </br>
+Gitness biedt dan ook via de documentatie site voorbeelden aan van veelgebruikte images/talen, zie de [samples](https://docs.gitness.com/category/samples). </br>
 
 Op deze manier is het mogelijk om een pipeline te maken die bijvoorbeeld een Postgres database in de achtergrond draait en een NodeJS applicatie test die gebruik maakt van de Postgres database. </br>
 
@@ -196,7 +198,8 @@ Daar heeft Gitness geen oplossing voor, daarom zal je zelf, voor bijvoorbeeld po
 ## Wat is de community support van Gitness?
 
 Gitness heeft een actieve community, dit is te zien aan de aantal open tegen gesloten issues op Github. </br>
-Op Github heeft Gitness een totaal van +- 29.7k stars en 2.7k forks, wat laat zien dat het een populair project is. </br>
+Op Github heeft Gitness een totaal van `27k` stars en 2.7k forks, wat laat zien dat het een populair project is. </br>
+<img align="right" src="./public/images/gitness-github-stars.png" width="200" alt="Gitness Github" />
 
 De documentatie van Gitness is uitgebreid en goed te begrijpen, zo kan je voor de pipelines eenvoudig een key vinden zoals `stage.type.group` die verwijst naar de documentatie als je het type van `'group'` zet als type van je stage. </br>
 
@@ -260,8 +263,9 @@ Tijdens dit onderzoek zijn de volgende bronnen, in APA, gebruikt:
  -->
 
 - Gitness Homepagina, 01-10-23, Gitness, geraadpleegd op 01-10-23, van [gitness.com](https://gitness.com/)
-- Gitness Docs, 02-10-23, Gitness Docs, geraadpleegd op 02-10-23, van (https://docs.gitness.com/)
+- Gitness Docs, 02-10-23, Gitness Docs, geraadpleegd op 02-10-23, van [docs.gitness.com](https://docs.gitness.com/)
 - Gitness Github, 03-10-23, Gitness Github, geraadpleegd op 03-10-23, van https://github.com/harness/gitness/
 - Gitness, 01-10-23, Gitness.com, geraadpleegd op 01-10-23, van
-- Gitlab installation self hosting, Gitlab Self Hosting, geraadpleegd op 31-09-23, van [docs.gitlab.com](https://docs.gitlab.com/ee/install/docker.html#install-gitlab-using-docker-compose)
+- Gitlab installation self hosting, Gitlab Self Hosting, geraadpleegd op 30-09-23, van [docs.gitlab.com](https://docs.gitlab.com/ee/install/docker.html#install-gitlab-using-docker-compose)
+- Gitness product blog, Harness.io, geraadpleegd op 30-09-23, van [harness.io](https://www.harness.io/blog/gitness-your-ultimate-open-source-development-platform)
 <!-- TODO onderzoeks bronnen -->
