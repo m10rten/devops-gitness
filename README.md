@@ -19,38 +19,11 @@ Onderstaand de features van Gitness: </br>
 
 ## Hoofdvraag
 
+In deze blogpost wordt er antwoord gegeven op de volgende hoofdvraag: </br>
+
 Hoe kan Gitness ingezet worden als alternatief versiebeheersysteem voor Git? </br>
-Zo kijken we naar de volgende deelvragen, ondersteund door de Ictresearchmethods. </br>
 
 <img align="right" src="./public/images/ictmethodslogo.png" alt="ict methods logo" width="150" />
-
-## Deelvragen
-
-### 1. Wat is Gitness?
-
-Om deze vraag te beantwoorden wordt er gekeken naar de documentatie van Gitness. </br>
-Hierbij wordt gebruik gemaakt van de onderzoeksmethode `Literature Study` binnen `Library`.
-
-### 2. Wat is de praktijkervaring met Gitness?
-
-Om hier achter te komen wordt er gekeken naar de praktijkervaring van het gebruik van Gitness. </br>
-Hierbij wordt gebruik gemaakt van de onderzoeksmethode `Observation` binnen `Field` en `Usability Testing` binnen `Lab`.
-
-### 3. Wat is de community support van Gitness?
-
-Om hier achter te komen wordt gekeken naar activiteit vanuit de community, omdat het een open source product is, is dit een belangrijk aspect om mee te nemen in het onderzoek. </br>
-Hierbij wordt gebruik gemaakt van de onderzoeksmethode `Community Research` binnen `Library` en `Observation` binnen `Field`.
-
-### 4. Wat zijn de voor- en nadelen van Gitness?
-
-Hierbij wordt er gelet op de voor- en nadelen van Gitness ten opzichte van de standaard van Github en Gitlab. </br>
-Hierbij wordt gebruik gemaakt van de onderzoeksmethode `Observation` binnen `Field` en `Document Analysis` binnen `Field`.
-
-### 5. Hoe verhoudt Gitness zich ten opzichte van andere versiebeheersystemen?
-
-Deze vraag wordt beantwoord door Gitness te vergelijken met andere versiebeheersystemen zoals Gitlab en Github. </br>
-Voornamelijk uit het oogpunt van de eindgebruiker, met meegenomen de voor- en nadelen van Gitness beschreven in de vorige deelvraag. </br>
-Hierbij wordt gebruik gemaakt van de onderzoeksmethode `A/B Testing` binnen `Lab` en `Observation` binnen `Field`.
 
 ## Wat is Gitness?
 
@@ -64,8 +37,10 @@ Deze tool is ontworpen om de ontwikkelingsworkflow te stroomlijnen en maakt het 
 
 ### Kleine feitjes
 
+**Gitness** is vrij nieuw, op 21-sept-23 bracht **Harness**.io Gitness uit, daarvoor werd er al wel aan gewerkt. </br>
+
 **Gitness** is gemaakt in de Go programeertaal en sluit daarmee goed aan op de docker omgeving waarin het draait. </br>
-Het is een open source project en wordt onderhouden door [Harness](https://harness.io/).
+Het is een open source project en wordt onderhouden door [Harness (Harness github, 2023)](https://github.com/harness/).
 
 <img align="right" src="./public/images/go-lang.png" width="150" alt="Go lang logo" style="background:#111; border-radius:1rem;" />
 
@@ -100,7 +75,7 @@ In dit bestand worden volumes aangemaakt om zo de data van gitness te bewaren en
 <hr />
 
 Wanneer je dan de docker container opstart met het volgende commando: `docker-compose up -d` </br>
-Dan is Gitness te bereiken op `http://localhost:3000`. </br>
+Dan is Gitness te bereiken op `http://localhost:3000/`. </br>
 Na het aanmaken van een account en het inloggen, kom je op de homepagina van Gitness: </br>
 <img src="./public/images/gitness-webui.png" width="600" />
 
@@ -142,14 +117,14 @@ De resultaten die je dan te zien krijgt zijn vrijwel identiek aan de resultaten 
 
 #### Deep dive
 
-Omdat er in de [Documentatie](https://docs.gitness.com/) van Gitness veel te vinden is over de pipelines, is dit een samenvatting van de belangrijkste punten. </br>
+Omdat er in de [Documentatie (Gitness, 2023)](https://docs.gitness.com/) van Gitness veel te vinden is over de pipelines, is dit een samenvatting van de belangrijkste punten. </br>
 Pipelines binnen Gitness draaien via docker images en zijn daarmee eenvoudig te maken en te gebruiken. </br>
 
 In de YAML van de pipeline is het mogelijk om de volgende aspecten te gebruiken: </br>
 
 - Matrix, om meerdere versies te runnen van je pipeline. </br>
 - Secrets, om gevoelige informatie op te slaan. </br>
-- Parrellel, om meerdere stappen tegelijk te runnen. </br>
+- Parallel, om meerdere stappen tegelijk te runnen. </br>
 - Stages, om stappen te groeperen. </br>
 - Steps, om stappen te definiëren. </br>
   - Background, deze stap runt in de achtergrond, exit code wordt genegeerd. </br>
@@ -157,6 +132,9 @@ In de YAML van de pipeline is het mogelijk om de volgende aspecten te gebruiken:
   - Run, deze stap runt een commando in een shell. Dit is de meest gebruikte stap binnen je pipeline. </br>
 - Triggers, bovenstaand werd al even kort stilgestaan bij triggers, maar hieronder een voorbeeld: </br>
   - Daarmee kan je bijvoorbeeld in een `step` een conditie maken als: `when: build.action == "pullreq_created"`
+
+Hiervoor heb ik het volgende plaatje gemaakt: </br>
+<img src="./public/images/gitness-pipeline-orchestra.png" width="600"  style="border-radius:1rem;" />
 
 Omdat de pipelines draaien via docker images, is het mogelijk om een eigen image te maken en te gebruiken. </br>
 Gitness biedt dan ook via de documentatie site voorbeelden aan van veelgebruikte images/talen, zie de [samples](https://docs.gitness.com/category/samples). </br>
@@ -170,7 +148,7 @@ kind: pipeline
 spec:
   stages:
     - type: ci
-      # alleen runnen als de pull request is aangemaakt, mogelijk op stage en step niveau
+      # alleen runnen als een pull request is aangemaakt, mogelijk op stage en step niveau
       when: build.action == "pullreq_created"
       spec:
         steps:
@@ -179,17 +157,25 @@ spec:
             type: background
             spec:
               # docker image die in de container draait.
-              container: postgres:alpine
+              container:
+                image: postgres:latest
+                pull: if-not-exists
+              # geef environment variabelen mee aan de container
               env:
                 POSTGRES_PASSWORD: password
           - name: test
             type: run
+            # maak een matrix aan met verschillende versies van node
+            strategy:
+              type: matrix
+              spec:
+                axis:
+                  node_version: ["18", "20"]
             spec:
-              container: node:latest
+              container: node:${{ matrix.node_version }}
               # shell commando wat uitgevoerd wordt.
               script: |-
-                npm run build
-                npm run test
+                node -e "console.log('Hello world with node ${{ matrix.node_version }} ')"
 ```
 
 Al hoewel bovenstaande YAML opgebouwd is als voorbeeld, is het een best-practice om eerst te wachten tot de database klaar is met opstarten. </br>
@@ -223,7 +209,7 @@ Om het dan samen te vatten, zie onderstaand de voor- en nadelen van Gitness: </b
 - Uitgebreide documentatie
 - Simpele pipelines
 - Lokale Git omgeving
-- Clean webinterface
+- Clean web UI
 - Open source
 - Actieve community
 
@@ -232,7 +218,10 @@ Om het dan samen te vatten, zie onderstaand de voor- en nadelen van Gitness: </b
 - Geen tickets/issues
 - Geen discussies
 - Geen plugins van buitenaf om extra functionaliteit zoals waiter of tickets toe te voegen
-- Oplossing voor bereiken van buitenaf niet gedocumenteerd
+- Oplossing voor bereiken van buitenaf niet gedocumenteerd (hoe je poort veranderd, GIT url aanpast voor productie gebruik etc)
+
+Ik heb hiervoor een plaatje gemaakt die dit laat zien: </br>
+<img src="./public/images/gitness-pros-cons.png" width="600" style="border-radius:1rem;" />
 
 ## Hoe verhoudt Gitness zich ten opzichte van andere versiebeheersystemen?
 
@@ -256,16 +245,12 @@ Echter is Gitness niet de juiste keuze als je een volledige project-oplossing zo
 
 ## Bronnen
 
-Tijdens dit onderzoek zijn de volgende bronnen, in APA, gebruikt:
-
-<!-- APA voorbeeld:
-- Naam, Datum, titel, geraadpleegd op datum, van url
- -->
+Tijdens het schrijven van dit blogpost zijn de volgende bronnen, in APA, gebruikt:
 
 - Gitness Homepagina, 01-10-23, Gitness, geraadpleegd op 01-10-23, van [gitness.com](https://gitness.com/)
 - Gitness Docs, 02-10-23, Gitness Docs, geraadpleegd op 02-10-23, van [docs.gitness.com](https://docs.gitness.com/)
-- Gitness Github, 03-10-23, Gitness Github, geraadpleegd op 03-10-23, van https://github.com/harness/gitness/
-- Gitness, 01-10-23, Gitness.com, geraadpleegd op 01-10-23, van
+- Gitness Github, 03-10-23, Gitness Github, geraadpleegd op 03-10-23, van [github.com/harness/gitness](https://github.com/harness/gitness/)
+- Harness Github, 02-10-23, Harness Github, geraadpleegd op 02-10-23, van [github.com/harness](https://github.com/harness/)
 - Gitlab installation self hosting, Gitlab Self Hosting, geraadpleegd op 30-09-23, van [docs.gitlab.com](https://docs.gitlab.com/ee/install/docker.html#install-gitlab-using-docker-compose)
 - Gitness product blog, Harness.io, geraadpleegd op 30-09-23, van [harness.io](https://www.harness.io/blog/gitness-your-ultimate-open-source-development-platform)
-<!-- TODO onderzoeks bronnen -->
+- Drone CLI, Drone.io by harness, geraadpleegd op 05-10-23, van [docs.drone.io](https://docs.drone.io/cli/install/)

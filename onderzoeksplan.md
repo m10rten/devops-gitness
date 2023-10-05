@@ -19,9 +19,31 @@ Deze hoofdvraag resulteert in de volgende deelvragen:
 
 ## Deelvragen
 
-1. Wat is Gitness? En hoe werkt het?
-2. Wat zijn de voor- en nadelen van Gitness?
-3. Hoe verhoudt Gitness zich ten opzichte van andere versiebeheersystemen?
+### 1. Wat is Gitness?
+
+Om deze vraag te beantwoorden wordt er gekeken naar de documentatie van Gitness. </br>
+Hierbij wordt gebruik gemaakt van de onderzoeksmethode `Literature Study` binnen `Library`.
+
+### 2. Wat is de praktijkervaring met Gitness?
+
+Om hier achter te komen wordt er gekeken naar de praktijkervaring van het gebruik van Gitness. </br>
+Hierbij wordt gebruik gemaakt van de onderzoeksmethode `Observation` binnen `Field` en `Usability Testing` binnen `Lab`.
+
+### 3. Wat is de community support van Gitness?
+
+Om hier achter te komen wordt gekeken naar activiteit vanuit de community, omdat het een open source product is, is dit een belangrijk aspect om mee te nemen in het onderzoek. </br>
+Hierbij wordt gebruik gemaakt van de onderzoeksmethode `Community Research` binnen `Library` en `Observation` binnen `Field`.
+
+### 4. Wat zijn de voor- en nadelen van Gitness?
+
+Hierbij wordt er gelet op de voor- en nadelen van Gitness ten opzichte van de standaard van Github en Gitlab. </br>
+Hierbij wordt gebruik gemaakt van de onderzoeksmethode `Observation` binnen `Field` en `Document Analysis` binnen `Field`.
+
+### 5. Hoe verhoudt Gitness zich ten opzichte van andere versiebeheersystemen?
+
+Deze vraag wordt beantwoord door Gitness te vergelijken met andere versiebeheersystemen zoals Gitlab en Github. </br>
+Voornamelijk uit het oogpunt van de eindgebruiker, met meegenomen de voor- en nadelen van Gitness beschreven in de vorige deelvraag. </br>
+Hierbij wordt gebruik gemaakt van de onderzoeksmethode `A/B Testing` binnen `Lab` en `Observation` binnen `Field`.
 
 ## Onderzoeksmethode
 
@@ -39,6 +61,4 @@ Dit stappenplan ziet er als volgt uit:
 
 Tijdens dit onderzoek zijn de volgende bronnen, in APA, gebruikt:
 
-<!-- APA voorbeeld:
-- Naam, Datum, titel, geraadpleegd op datum, van url
- -->
+- Ict Research Methods, 30-09-23, https://ictresearchmethods.nl/
