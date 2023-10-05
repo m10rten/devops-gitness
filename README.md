@@ -19,11 +19,11 @@ Onderstaand de features van Gitness: </br>
 
 ## Hoofdvraag
 
+<img align="right" src="./public/images/ictmethodslogo.png" alt="ict methods logo" width="150" />
+
 In deze blogpost wordt er antwoord gegeven op de volgende hoofdvraag: </br>
 
 Hoe kan Gitness ingezet worden als alternatief versiebeheersysteem voor Git? </br>
-
-<img align="right" src="./public/images/ictmethodslogo.png" alt="ict methods logo" width="150" />
 
 ## Wat is Gitness?
 
@@ -37,12 +37,12 @@ Deze tool is ontworpen om de ontwikkelingsworkflow te stroomlijnen en maakt het 
 
 ### Kleine feitjes
 
+<img align="right" src="./public/images/go-lang.png" width="150" alt="Go lang logo" style="background:#111; border-radius:1rem;" />
+
 **Gitness** is vrij nieuw, op 21-sept-23 bracht **Harness**.io Gitness uit, daarvoor werd er al wel aan gewerkt. </br>
 
 **Gitness** is gemaakt in de Go programeertaal en sluit daarmee goed aan op de docker omgeving waarin het draait. </br>
 Het is een open source project en wordt onderhouden door [Harness (Harness github, 2023)](https://github.com/harness/).
-
-<img align="right" src="./public/images/go-lang.png" width="150" alt="Go lang logo" style="background:#111; border-radius:1rem;" />
 
 ## Hoe werkt Gitness?
 
@@ -81,13 +81,11 @@ Na het aanmaken van een account en het inloggen, kom je op de homepagina van Git
 
 Vervolgens kun je een repository aanmaken en dan krijg je de volgende opties: </br>
 
-<section style="display: flex; gap:1rem;">
 <img align="left" src="./public/images/gitness-repository-dock.png" width="200" />
+
 Deze opties zijn niet veel anders dan we van Github en Gitlab gewend zijn. </br>
 Binnen de pipelines is het mogelijk om een pipeline te maken met een een YAML structuur. </br>
 Wat hier wel opvalt is de afwezigheid van tickets/issues of discussies. Op deze manier ben je dus genoodzaakt om een andere tool te gebruiken voor het beheren van tickets/issues en discussies. </br>
-</section>
-</br>
 
 <hr />
 
