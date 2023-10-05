@@ -5,13 +5,13 @@ _Maarten van der Lei, 2023_ </br>
 ## Inleiding
 
 <section style="display: flex; gap:1rem;">
+<img align="right" src="./public/images/gitness-logo.svg" alt="Gitness logo" width="400" style="color:white; background:#111; border-radius:2rem; padding:1rem 2rem;" />
 <p> 
 <span style="font-size:3rem;">I</span>n de wereld van DevOps staat snelheid, stabiliteit en efficientie van de softwareontwikkeling centraal. Daarom is het gebruik van een versiebeheersysteem zoals Git een must. </br>
 <b>Gitness</b>_(Gitness, 2023)_ is een tool die het gebruik van Git eenvoudiger maakt. In dit onderzoek wordt er gekeken naar wat Gitness is, hoe het werkt, wat de voor- en nadelen zijn en hoe het zich verhoudt ten opzichte van andere versiebeheersystemen. </br>
 <i>Waarom een alternatief op basis van Git?</i> Omdat Git de grondlegging is van de DevOps structuur en DevOps staat voor verandering en aanpassing, is het belangrijk om te kijken naar alternatieven die het gebruik van Git eenvoudiger maken. </br>
 </p>
 
-<img align="right" src="./public/images/gitness-logo.svg" alt="Gitness logo" width="400" style="color:white; background:#111; border-radius:2rem; padding:1rem 2rem;" />
 </section>
 
 Onderstaand de features van Gitness: </br>
