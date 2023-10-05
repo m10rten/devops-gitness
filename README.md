@@ -33,21 +33,21 @@ Hierbij wordt gebruik gemaakt van de onderzoeksmethode `Literature Study` binnen
 Om hier achter te komen wordt er gekeken naar de praktijkervaring van het gebruik van Gitness. </br>
 Hierbij wordt gebruik gemaakt van de onderzoeksmethode `Observation` binnen `Field` en `Usability Testing` binnen `Lab`.
 
-### 3. Wat zijn de voor- en nadelen van Gitness?
+### 3. Wat is de community support van Gitness?
+
+Om hier achter te komen wordt gekeken naar activiteit vanuit de community, omdat het een open source product is, is dit een belangrijk aspect om mee te nemen in het onderzoek. </br>
+Hierbij wordt gebruik gemaakt van de onderzoeksmethode `Community Research` binnen `Library` en `Observation` binnen `Field`.
+
+### 4. Wat zijn de voor- en nadelen van Gitness?
 
 Hierbij wordt er gelet op de voor- en nadelen van Gitness ten opzichte van de standaard van Github en Gitlab. </br>
 Hierbij wordt gebruik gemaakt van de onderzoeksmethode `Observation` binnen `Field` en `Document Analysis` binnen `Field`.
 
-### 4. Hoe verhoudt Gitness zich ten opzichte van andere versiebeheersystemen?
+### 5. Hoe verhoudt Gitness zich ten opzichte van andere versiebeheersystemen?
 
 Deze vraag wordt beantwoord door Gitness te vergelijken met andere versiebeheersystemen zoals Gitlab en Github. </br>
 Voornamelijk uit het oogpunt van de eindgebruiker, met meegenomen de voor- en nadelen van Gitness beschreven in de vorige deelvraag. </br>
 Hierbij wordt gebruik gemaakt van de onderzoeksmethode `A/B Testing` binnen `Lab` en `Observation` binnen `Field`.
-
-### 5. Wat is de community support van Gitness?
-
-Om hier achter te komen wordt gekeken naar activiteit vanuit de community, omdat het een open source product is, is dit een belangrijk aspect om mee te nemen in het onderzoek. </br>
-Hierbij wordt gebruik gemaakt van de onderzoeksmethode `Community Research` binnen `Library` en `Observation` binnen `Field`.
 
 ## Wat is Gitness?
 
@@ -167,11 +167,15 @@ kind: pipeline
 spec:
   stages:
     - type: ci
+      # alleen runnen als de pull request is aangemaakt, mogelijk op stage en step niveau
+      when: build.action == "pullreq_created"
       spec:
         steps:
           - name: database
+            # type: background, run, plugin
             type: background
             spec:
+              # docker image die in de container draait.
               container: postgres:alpine
               env:
                 POSTGRES_PASSWORD: password
@@ -179,6 +183,7 @@ spec:
             type: run
             spec:
               container: node:latest
+              # shell commando wat uitgevoerd wordt.
               script: |-
                 npm run build
                 npm run test
@@ -186,6 +191,64 @@ spec:
 
 Al hoewel bovenstaande YAML opgebouwd is als voorbeeld, is het een best-practice om eerst te wachten tot de database klaar is met opstarten. </br>
 Daar heeft Gitness geen oplossing voor, daarom zal je zelf, voor bijvoorbeeld postgres, een waiter moeten gebruiken die polled op de database. </br>
+
+## Wat is de community support van Gitness?
+
+Gitness heeft een actieve community, dit is te zien aan de aantal open tegen gesloten issues op Github. </br>
+Op Github heeft Gitness een totaal van +- 29.7k stars en 2.7k forks, wat laat zien dat het een populair project is. </br>
+
+De documentatie van Gitness is uitgebreid en goed te begrijpen, zo kan je voor de pipelines eenvoudig een key vinden zoals `stage.type.group` die verwijst naar de documentatie als je het type van `'group'` zet als type van je stage. </br>
+
+## Wat zijn de voor- en nadelen van Gitness?
+
+Gitness heeft een aantal voor- en nadelen ten opzichte van de standaard van Github en Gitlab. </br>
+Zo kan je met Gitness eenvoudig een pipeline opzetten en draaien, maar is het niet mogelijk om tickets/issues of discussies te beheren. </br>
+Daarnaast is Gitness heel lichtgewicht en eenvoudig op te zetten, maar is het niet mogelijk om plugins te installeren. </br>
+
+Gitness is open source en wordt onderhouden door een grote community, maar is niet zo groot als Github of Gitlab. </br>
+
+Een nadeel waar ik zelf tegenaan ben gelopen is het ontbreken van 2 dingen: een waiter, dus wacht tot deze container is gestart en wanneer je lokaal in docker gitness opstart, dan is het niet mogelijk om vanaf een andere machine de webinterface te bereiken zonder configuratie, en dit is niet gedocumenteerd. </br>
+
+Het grootste voordeel van Gitness in mijn ogen is de eenvoud van het opzetten van het geheel, namelijk lokaal en vrij vlot. </br>
+
+Om het dan samen te vatten, zie onderstaand de voor- en nadelen van Gitness: </br>
+**Voordelen**:
+
+- Eenvoudig op te zetten
+- Gebruiksvriendelijk
+- Uitgebreide documentatie
+- Simpele pipelines
+- Lokale Git omgeving
+- Clean webinterface
+- Open source
+- Actieve community
+
+**Nadelen**:
+
+- Geen tickets/issues
+- Geen discussies
+- Geen plugins van buitenaf om extra functionaliteit zoals waiter of tickets toe te voegen
+- Oplossing voor bereiken van buitenaf niet gedocumenteerd
+
+## Hoe verhoudt Gitness zich ten opzichte van andere versiebeheersystemen?
+
+Gitness is een alternatief voor Gitlab en Github, maar legt de nadruk op een eenvoudigere interface en lichtgewicht functionaliteit. </br>
+In dat opzicht is Gitness een goed alternatief voor als versiebeheersysteem, maar waar Gitness zich echt onderscheid is de pipeline functionaliteit. Hier is Gitness eenvoudig te gebruiken. Maar waar Github en Gitlab het eenvoudiger maken om een all-in-one oplossing te hebben als compleet project management, is Gitness echt alleen een versiebeheer en pipeline tool. </br>
+
+### Installatie
+
+Het verschil tussen installatie is behoorlijk, Gitness zet je binnen 30s op met behulp van docker, waar je met Gitlab verschillende pagina's aan text moet lezen om het op te zetten. </br>
+Zie zo de installatie van Gitlab: </br>
+<img src="./public/images/gitlab-installation.png" width="200" alt="Gitlab installation" />
+
+En de installatie van Gitness: </br>
+<img src="./public/images/gitness-installation.png" width="200" alt="Gitness installation" />
+
+## Conclusie
+
+Gitness is een goed alternatief voor Gitlab en Github, maar legt de nadruk op een eenvoudigere interface en lichtgewicht functionaliteit. </br>
+Dus als je op zoek bent naar een alternatieve Git oplossing, dan is Gitness een goede keuze. </br>
+Echter is Gitness niet de juiste keuze als je een volledige project-oplossing zoekt zoals Github en Gitlab dat bieden met tickets/issues en discussies. </br>
 
 ## Bronnen
 
@@ -195,7 +258,9 @@ Tijdens dit onderzoek zijn de volgende bronnen, in APA, gebruikt:
 - Naam, Datum, titel, geraadpleegd op datum, van url
  -->
 
-- Gitness Homepagina, 01-10-23, Gitness, geraadpleegd op 01-10-23, van https://gitness.com/
-- Gitness Docs, 02-10-23, Gitness Docs, geraadpleegd op 02-10-23, van https://docs.gitness.com/
+- Gitness Homepagina, 01-10-23, Gitness, geraadpleegd op 01-10-23, van [gitness.com](https://gitness.com/)
+- Gitness Docs, 02-10-23, Gitness Docs, geraadpleegd op 02-10-23, van (https://docs.gitness.com/)
 - Gitness Github, 03-10-23, Gitness Github, geraadpleegd op 03-10-23, van https://github.com/harness/gitness/
-- Gitlab installatie, 02-10-23, Gitlab installatie, geraadpleegd op 02-10-23, van https://docs.gitlab.com/ee/install/docker.html or https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/install/docker.md
+- Gitness, 01-10-23, Gitness.com, geraadpleegd op 01-10-23, van
+- Gitlab installation self hosting, Gitlab Self Hosting, geraadpleegd op 31-09-23, van [docs.gitlab.com](https://docs.gitlab.com/ee/install/docker.html#install-gitlab-using-docker-compose)
+<!-- TODO onderzoeks bronnen -->
