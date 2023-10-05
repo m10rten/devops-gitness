@@ -9,7 +9,7 @@
 <i>Waarom een alternatief op basis van Git?</i> Omdat Git de grondlegging is van de DevOps structuur en DevOps staat voor verandering en aanpassing, is het belangrijk om te kijken naar alternatieven die het gebruik van Git eenvoudiger maken.</br>
 </p>
 
-<img src="./public/images/gitness-logo.svg" alt="Gitness logo" width="400" style="color:white; background:#111; border-radius:2rem; padding:1rem 2rem;" />
+<img align="right" src="./public/images/gitness-logo.svg" alt="Gitness logo" width="400" style="color:white; background:#111; border-radius:2rem; padding:1rem 2rem;" />
 </section>
 
 Onderstaand de features van Gitness: </br>
@@ -19,7 +19,8 @@ Onderstaand de features van Gitness: </br>
 
 Hoe kan Gitness ingezet worden als alternatief versiebeheersysteem voor Git? </br>
 Zo kijken we naar de volgende deelvragen, ondersteund door de Ictresearchmethods. </br>
-[![ict methods logo](./public/images/ictmethodslogo.png)](https://ictresearchmethods.nl/)
+
+<img align="right" src="./public/images/ictmethodslogo.png" alt="ict methods logo" width="150" />
 
 ## Deelvragen
 
@@ -64,7 +65,7 @@ Deze tool is ontworpen om de ontwikkelingsworkflow te stroomlijnen en maakt het 
 **Gitness** is gemaakt in de Go programeertaal en sluit daarmee goed aan op de docker omgeving waarin het draait. </br>
 Het is een open source project en wordt onderhouden door [Harness](https://harness.io/).
 
-<img src="./public/images/go-lang.png" width="150" alt="Go lang logo" style="background:#111; border-radius:1rem;" />
+<img align="right" src="./public/images/go-lang.png" width="150" alt="Go lang logo" style="background:#111; border-radius:1rem;" />
 
 ## Hoe werkt Gitness?
 
@@ -104,7 +105,7 @@ Na het aanmaken van een account en het inloggen, kom je op de homepagina van Git
 Vervolgens kun je een repository aanmaken en dan krijg je de volgende opties: </br>
 
 <section style="display: flex; gap:1rem;">
-<img src="./public/images/gitness-repository-dock.png" width="200" />
+<img align="left" src="./public/images/gitness-repository-dock.png" width="200" />
 Deze opties zijn niet veel anders dan we van Github en Gitlab gewend zijn. </br>
 Binnen de pipelines is het mogelijk om een pipeline te maken met een een YAML structuur. </br>
 Wat hier wel opvalt is de afwezigheid van tickets/issues of discussies. Op deze manier ben je dus genoodzaakt om een andere tool te gebruiken voor het beheren van tickets/issues en discussies. </br>
