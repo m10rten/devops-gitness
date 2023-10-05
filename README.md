@@ -89,6 +89,8 @@ Wat hier wel opvalt is de afwezigheid van tickets/issues of discussies. Op deze 
 </section>
 </br>
 
+<hr />
+
 ### Pipelines
 
 **Onderstaand is een voorbeeld van een pipeline die je kan maken binnen Gitness:** </br>
