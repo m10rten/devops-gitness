@@ -1,6 +1,7 @@
 # Gitness als alt. Versiebeheersysteem?
 
 _Maarten van der Lei, 2023_ </br>
+Link to self: [blog](https://github.com/m10rten/devops-gitness) </br>
 
 ## Inleiding
 
