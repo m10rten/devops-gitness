@@ -181,6 +181,12 @@ spec:
 Al hoewel bovenstaande YAML opgebouwd is als voorbeeld, is het een best-practice om eerst te wachten tot de database klaar is met opstarten. </br>
 Daar heeft Gitness geen oplossing voor, daarom zal je zelf, voor bijvoorbeeld postgres, een waiter moeten gebruiken die polled op de database. </br>
 
+#### Drone
+
+Drone is de methodiek waarmee Gitness de pipelines runt, dit is een open source project van Harness.io. </br>
+Wanneer een pipeline wordt gestart, dan wordt er een container opgestart met de drone-cli, deze cli wordt gebruikt om de pipeline te runnen. </br>
+Je kan dan je een docker image naar keuze gebruiken om je pipeline te runnen. </br>
+
 ## Wat is de community support van Gitness?
 
 Gitness heeft een actieve community, dit is te zien aan de aantal open tegen gesloten issues op Github. </br>
