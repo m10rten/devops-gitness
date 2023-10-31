@@ -9,7 +9,7 @@ Link to self: [blog](https://github.com/m10rten/devops-gitness) </br>
 <img align="right" src="./public/images/gitness-logo.svg" alt="Gitness logo" width="400" style="color:white; background:#111; border-radius:2rem; padding:1rem 2rem;" />
 <p> 
 <span style="font-size:3rem;">I</span>n de wereld van DevOps staat snelheid, stabiliteit en efficientie van de softwareontwikkeling centraal. Daarom is het gebruik van een versiebeheersysteem zoals Git een must. </br>
-<b>Gitness</b>_(Gitness, 2023)_ is een tool die het gebruik van Git eenvoudiger maakt. In dit onderzoek wordt er gekeken naar wat Gitness is, hoe het werkt, wat de voor- en nadelen zijn en hoe het zich verhoudt ten opzichte van andere versiebeheersystemen. </br>
+<b>Gitness</b> <i>(Gitness, 2023)</i> is een tool die het gebruik van Git eenvoudiger maakt. In dit onderzoek wordt er gekeken naar wat Gitness is, hoe het werkt, wat de voor- en nadelen zijn en hoe het zich verhoudt ten opzichte van andere versiebeheersystemen. </br>
 <i>Waarom een alternatief op basis van Git?</i> Omdat Git de grondlegging is van de DevOps structuur en DevOps staat voor verandering en aanpassing, is het belangrijk om te kijken naar alternatieven die het gebruik van Git eenvoudiger maken. </br>
 </p>
 
@@ -20,21 +20,26 @@ Onderstaand de features van Gitness: </br>
 
 ## Hoofdvraag
 
-<img align="right" src="./public/images/ictmethodslogo.png" alt="ict methods logo" width="150" />
+<img align="right" src="./public/images/ictmethodslogo.png" alt="ict methods logo" width="150" title="ICT Research Methods pack. (z.d.). ICT Research Methods — Methods Pack for research in ICT. ICT Research Methods. https://ictresearchmethods.nl/" />
 
 In deze blogpost wordt er antwoord gegeven op de volgende hoofdvraag: </br>
 
 Hoe kan Gitness ingezet worden als alternatief versiebeheersysteem voor Git? </br>
+Dit wordt gedaan aan de hand van de ICT Research Methods Pack _(ICTResearchMethodsPack, 2023)_.
+
+Deze wordt beantwoord aan de hand van de volgende deelvragen: </br>
 
 ## Wat is Gitness?
 
 In een notendop is **Gitness** is een open-source, zelf-hostbare Git-server met een webinterface en pipeline-functionaliteit.
 Het dient als een alternatief voor Gitlab en Github, maar legt de nadruk op een eenvoudigere interface en lichtgewicht functionaliteit.
 Het biedt de mogelijkheid om code op te slaan en te beheren, evenals geautomatiseerde DevOps-pipelines uit te voeren.
+Ik heb deze informatie uit de [PRNewsWire 'news-releases'](https://www.prnewswire.com/news-releases/harness-releases-gitness--open-source-git-platform-301934938.html) (PRNewsWire, provided by Harness, 2023), waarin ik voor het eerst de voor mij onbekende tool tegenkwam en leerde dat Gitness van het open source bedrijf Harness.io is. </br>
 
 In essentie is Gitness een platform dat de kracht van code-hosting en geautomatiseerde continue integratiepipelines combineert.
 Het stelt gebruikers in staat om Git-repositories lokaal te draaien en biedt een webinterface voor toegang.
 Deze tool is ontworpen om de ontwikkelingsworkflow te stroomlijnen en maakt het gemakkelijker om code te beheren en te integreren in een DevOps-omgeving.
+Samengevat van de [blog van TechTarget](https://www.techtarget.com/searchsoftwarequality/news/366552837/New-Git-repository-faces-corporate-open-source-doubts), (TechTarget, 2023). </br>
 
 ### Kleine feitjes
 
@@ -248,16 +253,29 @@ En de installatie van Gitness: </br>
 
 Gitness is een goed alternatief voor Gitlab en Github, maar legt de nadruk op een eenvoudigere interface en lichtgewicht functionaliteit. </br>
 Dus als je op zoek bent naar een alternatieve Git oplossing, dan is Gitness een goede keuze. </br>
-Echter is Gitness niet de juiste keuze als je een volledige project-oplossing zoekt zoals Github en Gitlab dat bieden met tickets/issues en discussies. </br>
+Echter is Gitness niet de juiste keuze als je een volledige project-oplossing zoekt zoals Github en Gitlab dat bieden met tickets/issues, projectborden en discussies. </br>
 
 ## Bronnen
 
 Tijdens het schrijven van dit blogpost zijn de volgende bronnen, in APA, gebruikt:
 
-- Gitness Homepagina, 01-10-23, Gitness, geraadpleegd op 01-10-23, van [gitness.com](https://gitness.com/)
-- Gitness Docs, 02-10-23, Gitness Docs, geraadpleegd op 02-10-23, van [docs.gitness.com](https://docs.gitness.com/)
-- Gitness Github, 03-10-23, Gitness Github, geraadpleegd op 03-10-23, van [github.com/harness/gitness](https://github.com/harness/gitness/)
-- Harness Github, 02-10-23, Harness Github, geraadpleegd op 02-10-23, van [github.com/harness](https://github.com/harness/)
-- Gitlab installation self hosting, Gitlab Self Hosting, geraadpleegd op 30-09-23, van [docs.gitlab.com](https://docs.gitlab.com/ee/install/docker.html#install-gitlab-using-docker-compose)
-- Gitness product blog, Harness.io, geraadpleegd op 30-09-23, van [harness.io](https://www.harness.io/blog/gitness-your-ultimate-open-source-development-platform)
-- Drone CLI, Drone.io by harness, geraadpleegd op 05-10-23, van [docs.drone.io](https://docs.drone.io/cli/install/)
+<!-- - ICTResearchMethodsPack, 02-10-23. Geraadpleegd op 02-10-23, Vogel, J. (z.d.). ICT Research Methods — Methods Pack for research in ICT. ICT Research Methods. [https://ictresearchmethods.nl/](https://ictresearchmethods.nl/)
+- Harness. (2023, 21 september). Harness Releases Gitness -- Open Source Git Platform. prnewswire. Geraadpleegd op 01-10-23, van [prnewswire.com/news-releases/harness-releases-gitness--open-source-git-platform](https://www.prnewswire.com/news-releases/harness-releases-gitness--open-source-git-platform-301934938.html)
+- Gitness Homepagina, 01-10-23, Gitness. Geraadpleegd op 01-10-23, van Gitness: Open-Source Code Hosting & CI/CD Pipeline Engine. (z.d.). Gitness. [https://gitness.com/](https://gitness.com/)
+- Gitness Docs, 02-10-23, Gitness Docs. Geraadpleegd op 02-10-23, van [docs.gitness.com](https://docs.gitness.com/)
+- Gitness Github, 03-10-23, Gitness Github. Geraadpleegd op 03-10-23, van [github.com/harness/gitness](https://github.com/harness/gitness/)
+- Harness Github, 02-10-23, Harness Github. Geraadpleegd op 02-10-23, van [github.com/harness](https://github.com/harness/)
+- Gitlab installation self hosting, Gitlab Self Hosting. Geraadpleegd op 30-09-23, van [docs.gitlab.com](https://docs.gitlab.com/ee/install/docker.html#install-gitlab-using-docker-compose)
+- Gitness product blog, Harness.io. Geraadpleegd op 30-09-23, van [harness.io](https://www.harness.io/blog/gitness-your-ultimate-open-source-development-platform)
+- Drone CLI, Drone.io by harness. Geraadpleegd op 05-10-23, van [docs.drone.io](https://docs.drone.io/cli/install/) -->
+
+- ICT Research Methods Pack. (2023, 02 oktober). Geraadpleegd op 02 oktober 2023, van [ICT Research Methods — Methods Pack for research in ICT](https://ictresearchmethods.nl/)
+- Harness. (2023, 21 september). Harness Releases Gitness -- Open Source Git Platform. prnewswire. Geraadpleegd op 01 oktober 2023, van [prnewswire.com/news-releases/harness-releases-gitness--open-source-git-platform-301934938.html](https://www.prnewswire.com/news-releases/harness-releases-gitness--open-source-git-platform-301934938.html)
+- TechTarget. (2023, 21 september). TechTarget blog. Geraadpleegd op 02 oktober 2023, van [New Git repository faces corporate open source doubts](https://www.techtarget.com/searchsoftwarequality/news/366552837/New-Git-repository-faces-corporate-open-source-doubts)
+- Gitness. (2023, 01 oktober). Geraadpleegd op 01 oktober 2023, van [Gitness: Open-Source Code Hosting & CI/CD Pipeline Engine](https://gitness.com/)
+- Gitness Docs. (2023, 02 oktober). Geraadpleegd op 02 oktober 2023, van [docs.gitness.com](https://docs.gitness.com/)
+- Gitness Github. (2023, 03 oktober). Geraadpleegd op 03 oktober 2023, van [github.com/harness/gitness](https://github.com/harness/gitness/)
+- Harness Github. (2023, 02 oktober). Geraadpleegd op 02 oktober 2023, van [github.com/harness](https://github.com/harness/)
+- Gitlab Installation Self Hosting. (2023, 30 september). Geraadpleegd op 30 september 2023, van [docs.gitlab.com](https://docs.gitlab.com/ee/install/docker.html#install-gitlab-using-docker-compose)
+- Harness.io. (2023, 30 september). Geraadpleegd op 30 september 2023, van [harness.io/blog/gitness-your-ultimate-open-source-development-platform](https://www.harness.io/blog/gitness-your-ultimate-open-source-development-platform)
+- Drone.io by Harness. (2023, 05 oktober). Geraadpleegd op 05 oktober 2023, van [docs.drone.io/cli/install/](https://docs.drone.io/cli/install/)
